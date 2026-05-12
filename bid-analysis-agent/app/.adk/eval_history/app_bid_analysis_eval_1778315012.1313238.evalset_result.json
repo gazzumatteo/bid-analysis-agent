@@ -1,0 +1,1543 @@
+{
+  "eval_set_result_id": "app_bid_analysis_eval_1778315012.1313238",
+  "eval_set_result_name": "app_bid_analysis_eval_1778315012.1313238",
+  "eval_set_id": "bid_analysis_eval",
+  "eval_case_results": [
+    {
+      "eval_set_file": "bid_analysis_eval",
+      "eval_set_id": "bid_analysis_eval",
+      "eval_id": "full_flow_test",
+      "final_eval_status": 1,
+      "eval_metric_results": null,
+      "overall_eval_metric_results": [
+        {
+          "metric_name": "rubric_based_tool_use_quality_v1",
+          "threshold": 0.8,
+          "criterion": {
+            "threshold": 0.8,
+            "judgeModelOptions": {
+              "judgeModel": "gemini-flash-latest",
+              "numSamples": 1
+            },
+            "rubrics": [
+              {
+                "rubricId": "check_analyst_call",
+                "rubricContent": {
+                  "textProperty": "The agent must consult the 'tender_analyst' before asking for a decision."
+                }
+              },
+              {
+                "rubricId": "check_hitl_call",
+                "rubricContent": {
+                  "textProperty": "The agent must use 'ask_bid_decision' to request approval from the user."
+                }
+              }
+            ]
+          },
+          "custom_function_path": null,
+          "score": 1.0,
+          "eval_status": 1,
+          "details": {
+            "rubric_scores": [
+              {
+                "rubric_id": "check_analyst_call",
+                "rationale": "This is an aggregated score derived from individual entries. Please refer to individual entries in each invocation for actual rationale from the model.",
+                "score": 1.0
+              },
+              {
+                "rubric_id": "check_hitl_call",
+                "rationale": "This is an aggregated score derived from individual entries. Please refer to individual entries in each invocation for actual rationale from the model.",
+                "score": 1.0
+              }
+            ]
+          }
+        },
+        {
+          "metric_name": "rubric_based_final_response_quality_v1",
+          "threshold": 0.8,
+          "criterion": {
+            "threshold": 0.8,
+            "judgeModelOptions": {
+              "judgeModel": "gemini-flash-latest",
+              "numSamples": 1
+            },
+            "rubrics": [
+              {
+                "rubricId": "professionalism",
+                "rubricContent": {
+                  "textProperty": "The response must be professional and provide a clear summary of the tender."
+                }
+              }
+            ]
+          },
+          "custom_function_path": null,
+          "score": 1.0,
+          "eval_status": 1,
+          "details": {
+            "rubric_scores": [
+              {
+                "rubric_id": "professionalism",
+                "rationale": "This is an aggregated score derived from individual entries. Please refer to individual entries in each invocation for actual rationale from the model.",
+                "score": 1.0
+              }
+            ]
+          }
+        }
+      ],
+      "eval_metric_result_per_invocation": [
+        {
+          "actual_invocation": {
+            "invocation_id": "e-b690afc8-1156-4942-8e2d-3e5d96ea2dcc",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Ciao, puoi analizzare questo bando di Sardegna CAT? https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi?id=187960",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Ho analizzato il bando di Sardegna CAT e ho riscontrato alcune criticità importanti.\n\n### Sintesi Analisi Gara: Servizio di manutenzione impianti\n*   **CIG:** Z123456789\n*   **Importo:** € 150.000,00\n*   **Scadenza:** 20 Maggio 2026\n\n**Punti di attenzione:**\n1.  **⚠️ Penale Eccessiva:** Il bando prevede una penale dell'**1% al giorno** per i ritardi. È una clausola estremamente rischiosa e sproporzionata (solitamente è lo 0,1%). Un ritardo di soli 10 giorni costerebbe il 10% dell'appalto.\n2.  **Requisiti di Fatturato:** Viene richiesto un fatturato annuo di € 300.000,00 (il doppio della base d'asta). È un requisito legittimo ma stringente.\n3.  **ISO 9001:** Certificazione obbligatoria richiesta.\n\n**Consiglio Tecnico:** Se decidiamo di procedere (**Go**), la prima azione dovrà essere l'invio di un quesito (chiarimento) per chiedere la revisione della clausola sulle penali, riconducendola ai limiti di legge/mercato.\n\nCosa vuoi fare? Rispondi con **\"Go\"** per avviare la pratica o **\"No-Go\"** per abbandonare questa opportunità.",
+                  "thought": null,
+                  "thought_signature": "AY89a186Kd_FuKR2DP00CdtqRs5jQDk1zePd6p10ipOoKZ-H7eFUlqPAIghYT7MxNZlX8tUKwjdvUihGVonuq3Q8b_sSjcm11CFlzGCgmTFSMD67RsK96tXzQh6-Y7rycGx6OVOb0NlEh_K3f3ndh62cpxE4uBBa4G4ySK82O-WoRAlbPqdAq9zZ6q_LfWEg28X2ATMUaacZ1vBqT-U8Ynr7twbGb-9PHEQejrnBfgnqctCHGwoWupoYCjCEyoL-iTaJGxOzhbVnQAAlX9MJOcfzGSwUVW05dmm8QLldiTbHAGSov74iuDX2vuRoCHLN0LzGBBgv8Ba1PYg9QDidOLrbUS-xfDEExbQ7LSyqO2QtXxQwDBWmqTreh8PeFKEfei8hEVTb_0DTjiHdIw_9WqKZJIftMhwcXO9rAS8s0OUE3nYx-38RUhPwoCDhZOjXEGyjgDRfiqmj7UstlqzyEpEnKHasu4blT7TW1wDXyaQD_iZ9adS39O5ukobRDh4D-Hm_4w4_fhnSTbGY5NjFVkQupX-nXLvvr9-Gw-rP59tYOeq0iKABXm8T48MPqAnxzJSixyK4eFrIuWNT3kPAAgyIymPRfd89L2w0Mt2rvxr0u9QQOnGgKoiZQBv-DGBI10lTRQgTB1YY-JU5IjV_3SR30qh9ePxe274UpjlV3OCJlgU3PAX1N5fj0Xt3s-sACq1SG5pYgRUwy-gv1JhPAgbXPzgrJIAstJN6W0-nEmy89UAqMNPKfTrXU9h2UIyfgb6F2KfZyz4yuM4b86lCJNF4pMi_VAVxvv7XnoxKRekqBeQ7fG9FFDx32bgDE0bbOSPS24wsuWuLph2rQz_VRGbE8vVQb_XaS4wWQ1rXsVWAHPCPEogLjHbOS6YoLJhvQ60njOSy_kLXYpoZbzxO-OzCz2szm_OIuKUeUu7WgWAaA1eawUV-QRugsG0FqjpeTR2hEZtwtKzXJO5HX-opLg4QUSmUc1UdIYjEvzdanUvdGQYQVeNEaZiy3504qRDumNqvd4cOFZ5H_3EzayO5d9IAIoLvM0XD-aEShbP7F1Wj0lA0MBa7pVuG93U613ytyY_R-73TG6YcA-JLEKRuucJIdTHy4sW9IVmReGrWAHDr-4k2z7XsjCKETtxWoegHOBryHw3-BCNWk4WwJwvMryIrfiP3yOgJeQXA3enZzqyQdJ1oJhzR70PgUYCOqlAaoIE8GcJHGV9daIh6Cjx4WcbLblX-DM_WStCCVnQ34e7bJtgHaLy7f9Gnxa4HxpWtEwN7ka5nomEdJUgpNyLTf5xIVeBl6O0-xOmGGEwFvY8DL7DRsuR-jYjmySzhe1eyyf7eb-O70HiTgs-iqdd9dqD58OVuvUaiyLbGycBwqCc9uXID3O9qCALcQT8NwSRC2Shu6KmLm-Kd9dZWnXegY3k5ALimj3Tt4ql4F_bN60NJjK6qzJfFXHHRT1w5fuUkkvEE6Xkn2XmxTBKCYpNSQemroR3N2vgshFSIAlT4lE-9p5zxJg==",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "invocation_events": [
+                {
+                  "author": "bid_manager",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-4fa60c4a-2ed8-4072-aa81-ed14c16f2322",
+                          "args": {
+                            "url": "https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi?id=187960"
+                          },
+                          "name": "read_tender",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "AY89a1-50RO1dQol8zfy-DhwzyWtjSjofQr9z4OeJqETNPZPXVTjUp8KsK28VpTX83Uy7hwmmEb0N0kiIDh-RhNMReYp8y3yhJrM5vLBlkVnj4F8T7HzwA56XHoVmE1Aw7RG5JrLzsr8ZviPt0rehnUKATHestZ4lPJxTfhnRCLZcHxM8cMsdH-xzYKFMBHCNdjdUOxCAiX75kay5YHFZY2prV9cBNcHMDUgjLAYWOuA4_zxjZ467g0Uyue3I9_EMTgcrVvYFG9LK_VESvmpJQRv2wxoI115jXHRnY_NLTRoJimMVscMpLqKFYJO-fPcIva50l1SNb2CnNeF1aRguCdNcDLxTOtehp-EQhhe5HAm5Mt8as83LQ2ofzz_d9IcMLHcJ5-Hd870drkrR0r6s4IrtewQ5lD5HiFuaboYu52DmsGBd03nSwZgt8zQV_xkZsBREPVVYIQgZBcrvpjhWsWnvNxxXob_J27y1FZaMy0K1hZXru0vsLoU-3Dw6LwNUooDj9stykY0rz_U7XIVZ0nZRnmVWi3xiCdEu-DU0mT2PbuwBmpIw9NfawYFXQsQz9enjN6VTLlOw_1OEkL-X_c4wp4HHiceoPADarTyPc8dd6mOy1Ue6ElbIglj2ZxSUC4R0KUfYun4IcbPWqPNPRy5dKs6vHFVQ-DKP7t1jwshGIu_4hfpHNrUNoQrjn1Pq8CAYDi6NyqDZHIldpn9MQ3scCPNbE0lJrAd1Ju6qrdL",
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "bid_manager",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-4fa60c4a-2ed8-4072-aa81-ed14c16f2322",
+                          "name": "read_tender",
+                          "response": {
+                            "result": "\n        BANDO DI GARA: Servizio di manutenzione impianti.\n        CIG: Z123456789\n        Scadenza: 20 Maggio 2026 ore 13:00\n        Importo: € 150.000,00\n        Requisiti: Certificazione ISO 9001 obbligatoria. Fatturato annuo minimo € 300.000,00.\n        Penali: 1% per ogni giorno di ritardo.\n        "
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                },
+                {
+                  "author": "bid_manager",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-df101bb6-d95f-40e6-a1a3-e6fcde5b80f8",
+                          "args": {
+                            "request": "Analizza i requisiti e i rischi del seguente bando:\n        BANDO DI GARA: Servizio di manutenzione impianti.\n        CIG: Z123456789\n        Scadenza: 20 Maggio 2026 ore 13:00\n        Importo: € 150.000,00\n        Requisiti: Certificazione ISO 9001 obbligatoria. Fatturato annuo minimo € 300.000,00.\n        Penali: 1% per ogni giorno di ritardo."
+                          },
+                          "name": "tender_analyst",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "AY89a1_fUt4E4ZyZO4Sg0jJlvVt3zeKfZFh11ZZjk6hAJkW-AeVOlYiZlpFVVx737C6kDz8IoEqXb-G9NF8zNN7o1Cg0mDWXaxQ7kKy9InbmqkMF0KnHuvkkwLY5ltdCAsKKxcBL2BhfDV7dfe_dMc5UdsEAzyNaiCRLSv45z5JFyI8yfjYxYIcaoWEv38avEV-EgcdHPHklNiVBcHYRe6JpiPHuk26pDcq6blL5orCnHjalgGftwC469ifs-BeKmD_QbMCI09Nyoz0c0ASQNHddHtEmVcwF1ARmBJ7QLQK1gT0GyYpElGiTfFU=",
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "bid_manager",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-df101bb6-d95f-40e6-a1a3-e6fcde5b80f8",
+                          "name": "tender_analyst",
+                          "response": {
+                            "result": "Ecco l'analisi sintetica del bando di gara per il servizio di manutenzione impianti.\n\n### 1. Requisiti di Partecipazione (Barriere all'ingresso)\n*   **Certificazione ISO 9001:** Requisito standard per la qualità. È necessario verificare se il bando richiede specifici settori EA (es. EA 28 per l'installazione e manutenzione impianti).\n*   **Fatturato Annuo (€ 300.000,00):** Questo requisito rappresenta il **doppio dell'importo a base di gara (€ 150.000,00)**. \n    *   *Criticità:* Sebbene il Codice dei Contratti Pubblici (D.Lgs. 36/2023) permetta di richiedere un fatturato fino al doppio del valore dell'appalto, tale soglia è al limite massimo della proporzionalità e potrebbe limitare la partecipazione di micro e piccole imprese.\n\n### 2. Rischi Contrattuali e Criticità (Red Flags)\n*   **⚠️ Penali (1% per giorno di ritardo):** Questa è la criticità maggiore. \n    *   *Rischio Elevato:* Una penale dell'1% giornaliero è **estremamente sproporzionata**. Solitamente, le penali nel settore pubblico oscillano tra lo 0,3‰ (per mille) e l'1‰ (per mille) al giorno. \n    *   *Impatto:* Con l'1% al giorno, bastano 10 giorni di ritardo per perdere il 10% del valore del contratto (che solitamente è il tetto massimo di penale applicabile per legge). È una clausola vessatoria che espone l'azienda a gravissimi rischi finanziari.\n*   **CIG (Z123456789):** Il formato del CIG fornito sembra un \"SmartCIG\" (tipico di affidamenti diretti o procedure sotto soglia). Assicurati che la procedura sia correttamente gestita sulle piattaforme certificate (e-procurement) come richiesto dal nuovo Codice.\n\n### 3. Punteggi Tecnici\n*   *Nota:* Il testo fornito non specifica i criteri di aggiudicazione (es. Offerta Economicamente Più Vantaggiosa - OEPV). \n*   **Raccomandazione:** In assenza di dettagli, ipotizzare che peseranno molto il **Piano di Manutenzione Preventiva** e i **Tempi di Intervento in caso di guasto (SLA)**.\n\n---\n\n### 🚩 ALERT ANALISTA\nLa clausola sulla **penale dell'1% giornaliero** è un segnale d'allarme rosso. In fase di chiarimenti, è fondamentale chiedere la rettifica o la riconduzione della penale entro i limiti fisiologici previsti dal Codice dei Contratti (0,3‰ - 1‰). Firmare un contratto con queste condizioni potrebbe azzerare il margine di profitto alla prima contestazione sui tempi di consegna o intervento."
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                },
+                {
+                  "author": "bid_manager",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-cdbf060d-a12a-433f-a822-c02dde7e9f3e",
+                          "args": {
+                            "message": "Ho analizzato il bando per il \"Servizio di manutenzione impianti\" (CIG Z123456789). Ecco una sintesi:\n\n**Dettagli Principali:**\n- **Importo:** € 150.000,00\n- **Scadenza:** 20 Maggio 2026\n- **Requisiti:** Fatturato annuo minimo di € 300.000,00 (il doppio della base d'asta) e Certificazione ISO 9001.\n\n**Rischi e Criticità:**\n- ⚠️ **Penale Estrema:** Il bando prevede una penale dell'1% per ogni giorno di ritardo. Questo valore è 10 volte superiore alla norma (solitamente 0,1%) e rappresenta un rischio finanziario altissimo.\n- **Soglia di Fatturato:** Il requisito è al limite massimo consentito, il che potrebbe rendere difficile la partecipazione se non si dispone di un solido track record finanziario.\n\n**Consiglio dell'Analista:** La penale è una \"Red Flag\" grave. Si consiglia di procedere solo se siamo disposti a chiedere un chiarimento ufficiale per ridurla o se siamo certi della nostra puntualità operativa.\n\n**Cosa vuoi fare? Rispondi con 'Go' per procedere alla preparazione dell'offerta o 'No-Go' per rinunciare.**"
+                          },
+                          "name": "ask_bid_decision",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "AY89a1_i9Z0AKr9e6Vdle_a4lQuXRe-dMw_rWqyZkWc6s3s3JUKN9hoimIaxKJrx2ZN35BzPjJ6aOWG9saIn_Et5J_kBLmzUsVH3WEaJeOJ5XG92pjkX6JlxbGz2mw2X8sIyWi-eSeLhWvQioJeFyBc88puryBdDViIPA5NnuFnrnSUdnMhgoZ8HRtM6Pjzvc8zNNrhniSf0H2uA7-fJ6GjO-Y1cemVsiwaKDhPu5NBCETNDpkZ6Xh3JuvPp6ogLLlBubmnd2qcpzOIgCKENfDkc88QOe9lg4N1E-oVM87H7cCrr5iWrAgbGWRz3KuaTj9sMxFF1a876A0AO2UD-0xWzWPnSAgoBG7LI4wTVAFcSsQ25ZiypMLmwHt_QLW9bvJtAEpltzcUJ6zl0HjnpGSWhkLeIkTgdGZTCnsqFwnjqkNkCyvndQVbyuDwZstX6UeApThybWkomFqIH1ovBjaA89qXO0GMY503C9gNKibQbrMFZ5GcFvfvBuR1oFLVBhGOQuwmXHokBG-8NtfmSyMhxhIjdMa8nIDiHFQtR5Bo1EqQvoH4nJFpvf-X3yGj5XF0Jzr2n-7IytlIF0cvVSJDb2m1r19HuyZ7oKerriW4nA8A=",
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "bid_manager",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-cdbf060d-a12a-433f-a822-c02dde7e9f3e",
+                          "name": "ask_bid_decision",
+                          "response": {
+                            "status": "pending",
+                            "message": "Ho analizzato il bando per il \"Servizio di manutenzione impianti\" (CIG Z123456789). Ecco una sintesi:\n\n**Dettagli Principali:**\n- **Importo:** € 150.000,00\n- **Scadenza:** 20 Maggio 2026\n- **Requisiti:** Fatturato annuo minimo di € 300.000,00 (il doppio della base d'asta) e Certificazione ISO 9001.\n\n**Rischi e Criticità:**\n- ⚠️ **Penale Estrema:** Il bando prevede una penale dell'1% per ogni giorno di ritardo. Questo valore è 10 volte superiore alla norma (solitamente 0,1%) e rappresenta un rischio finanziario altissimo.\n- **Soglia di Fatturato:** Il requisito è al limite massimo consentito, il che potrebbe rendere difficile la partecipazione se non si dispone di un solido track record finanziario.\n\n**Consiglio dell'Analista:** La penale è una \"Red Flag\" grave. Si consiglia di procedere solo se siamo disposti a chiedere un chiarimento ufficiale per ridurla o se siamo certi della nostra puntualità operativa.\n\n**Cosa vuoi fare? Rispondi con 'Go' per procedere alla preparazione dell'offerta o 'No-Go' per rinunciare.**"
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                }
+              ]
+            },
+            "creation_timestamp": 1778314963.663737,
+            "rubrics": null,
+            "app_details": {
+              "agent_details": {
+                "bid_manager": {
+                  "name": "bid_manager",
+                  "instructions": "Sei il Bid Manager. Il tuo obiettivo è coordinare la valutazione di un bando.\n    Segui rigorosamente questo processo:\n    1. Usa 'read_tender' per ottenere le informazioni base.\n    2. Consulta il 'tender_analyst' per un'analisi approfondita dei requisiti e dei rischi.\n    3. Presenta un riassunto all'utente e usa 'ask_bid_decision' (HITL) per ottenere l'approvazione.\n    4. SOLO SE l'utente risponde 'Go', usa 'setup_bid_workspace' per terminare il processo.\n    Se l'utente risponde 'No-Go', saluta e chiudi la pratica.\n\nYou are an agent. Your internal name is \"bid_manager\". The description about you is \"Agente coordinatore per la valutazione delle opportunità di gara.\".",
+                  "tool_declarations": [
+                    {
+                      "retrieval": null,
+                      "computer_use": null,
+                      "file_search": null,
+                      "google_search": null,
+                      "google_maps": null,
+                      "code_execution": null,
+                      "enterprise_web_search": null,
+                      "function_declarations": [
+                        {
+                          "description": "Reads and extracts text from a tender URL or PDF file.\n    \n    Args:\n        url: The URL or file path of the tender document.\n        \n    Returns:\n        The extracted text content from the tender.\n    ",
+                          "name": "read_tender",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "url": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "url"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "Requests a Go/No-Go decision from the Bid Manager (Human).\n    \n    Calling this tool will pause execution until the manager responds with 'Go' or 'No-Go'.\n    \n    Args:\n        message: A summary of the analysis and the question for the manager.\n    \n\nNOTE: This is a long-running operation. Do not call this tool again if it has already returned some intermediate or pending status.",
+                          "name": "ask_bid_decision",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "message": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "message"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "Simulates the creation of a shared Google Drive folder and workspace for the bid.\n    \n    Args:\n        tender_id: The ID or CIG of the tender.\n    ",
+                          "name": "setup_bid_workspace",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "tender_id": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "tender_id"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "Esperto legale e tecnico di bandi di gara pubblici italiani.",
+                          "name": "tender_analyst",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "request": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "request"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        }
+                      ],
+                      "google_search_retrieval": null,
+                      "parallel_ai_search": null,
+                      "url_context": null,
+                      "mcp_servers": null
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "expected_invocation": {
+            "invocation_id": "inv_1",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Ciao, puoi analizzare questo bando di Sardegna CAT? https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi?id=187960",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": null,
+            "intermediate_data": {
+              "tool_uses": [
+                {
+                  "id": null,
+                  "args": {
+                    "url": "https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi?id=187960"
+                  },
+                  "name": "read_tender",
+                  "partial_args": null,
+                  "will_continue": null
+                },
+                {
+                  "id": null,
+                  "args": {
+                    "query": ".*"
+                  },
+                  "name": "tender_analyst",
+                  "partial_args": null,
+                  "will_continue": null
+                },
+                {
+                  "id": null,
+                  "args": {
+                    "message": ".*"
+                  },
+                  "name": "ask_bid_decision",
+                  "partial_args": null,
+                  "will_continue": null
+                }
+              ],
+              "tool_responses": [],
+              "intermediate_responses": []
+            },
+            "creation_timestamp": 0.0,
+            "rubrics": null,
+            "app_details": null
+          },
+          "eval_metric_results": [
+            {
+              "metric_name": "rubric_based_tool_use_quality_v1",
+              "threshold": 0.8,
+              "criterion": {
+                "threshold": 0.8,
+                "judgeModelOptions": {
+                  "judgeModel": "gemini-flash-latest",
+                  "numSamples": 1
+                },
+                "rubrics": [
+                  {
+                    "rubricId": "check_analyst_call",
+                    "rubricContent": {
+                      "textProperty": "The agent must consult the 'tender_analyst' before asking for a decision."
+                    }
+                  },
+                  {
+                    "rubricId": "check_hitl_call",
+                    "rubricContent": {
+                      "textProperty": "The agent must use 'ask_bid_decision' to request approval from the user."
+                    }
+                  }
+                ]
+              },
+              "custom_function_path": null,
+              "score": 1.0,
+              "eval_status": 1,
+              "details": {
+                "rubric_scores": [
+                  {
+                    "rubric_id": "check_analyst_call",
+                    "rationale": "The agent called `tender_analyst` in Step 1 to analyze the extracted tender data before calling `ask_bid_decision` in Step 2.",
+                    "score": 1.0
+                  },
+                  {
+                    "rubric_id": "check_hitl_call",
+                    "rationale": "The agent called the `ask_bid_decision` tool in Step 2 to request a decision from the user.",
+                    "score": 1.0
+                  }
+                ]
+              }
+            },
+            {
+              "metric_name": "rubric_based_final_response_quality_v1",
+              "threshold": 0.8,
+              "criterion": {
+                "threshold": 0.8,
+                "judgeModelOptions": {
+                  "judgeModel": "gemini-flash-latest",
+                  "numSamples": 1
+                },
+                "rubrics": [
+                  {
+                    "rubricId": "professionalism",
+                    "rubricContent": {
+                      "textProperty": "The response must be professional and provide a clear summary of the tender."
+                    }
+                  }
+                ]
+              },
+              "custom_function_path": null,
+              "score": 1.0,
+              "eval_status": 1,
+              "details": {
+                "rubric_scores": [
+                  {
+                    "rubric_id": "professionalism",
+                    "rationale": "The final answer is written in professional, formal Italian, consistent with the role of a Bid Manager. It accurately summarizes the key tender details (CIG, Importo, Scadenza) and provides a clear, concise summary of the critical issues identified by the analyst (the 1% daily penalty and the stringent financial requirements). This synthesis is accurate and clearly presented to the user.",
+                    "score": 1.0
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "session_id": "___eval___session___65442e48-2d25-4684-a2e5-dedbfe48bb48",
+      "session_details": {
+        "id": "___eval___session___65442e48-2d25-4684-a2e5-dedbfe48bb48",
+        "app_name": "app",
+        "user_id": "cli-user",
+        "state": {
+          "__llm_request_key__": "5f8a0f63-b1e8-4dfb-a420-626e45b4da6d"
+        },
+        "events": [
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Ciao, puoi analizzare questo bando di Sardegna CAT? https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi?id=187960",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-b690afc8-1156-4942-8e2d-3e5d96ea2dcc",
+            "author": "user",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {},
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "4b06ab18-513d-463c-8acf-41826b6aba0a",
+            "timestamp": 1778314960.811905
+          },
+          {
+            "model_version": "gemini-3-flash-preview",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": {
+                    "id": "adk-4fa60c4a-2ed8-4072-aa81-ed14c16f2322",
+                    "args": {
+                      "url": "https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi?id=187960"
+                    },
+                    "name": "read_tender",
+                    "partial_args": null,
+                    "will_continue": null
+                  },
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": "AY89a1-50RO1dQol8zfy-DhwzyWtjSjofQr9z4OeJqETNPZPXVTjUp8KsK28VpTX83Uy7hwmmEb0N0kiIDh-RhNMReYp8y3yhJrM5vLBlkVnj4F8T7HzwA56XHoVmE1Aw7RG5JrLzsr8ZviPt0rehnUKATHestZ4lPJxTfhnRCLZcHxM8cMsdH-xzYKFMBHCNdjdUOxCAiX75kay5YHFZY2prV9cBNcHMDUgjLAYWOuA4_zxjZ467g0Uyue3I9_EMTgcrVvYFG9LK_VESvmpJQRv2wxoI115jXHRnY_NLTRoJimMVscMpLqKFYJO-fPcIva50l1SNb2CnNeF1aRguCdNcDLxTOtehp-EQhhe5HAm5Mt8as83LQ2ofzz_d9IcMLHcJ5-Hd870drkrR0r6s4IrtewQ5lD5HiFuaboYu52DmsGBd03nSwZgt8zQV_xkZsBREPVVYIQgZBcrvpjhWsWnvNxxXob_J27y1FZaMy0K1hZXru0vsLoU-3Dw6LwNUooDj9stykY0rz_U7XIVZ0nZRnmVWi3xiCdEu-DU0mT2PbuwBmpIw9NfawYFXQsQz9enjN6VTLlOw_1OEkL-X_c4wp4HHiceoPADarTyPc8dd6mOy1Ue6ElbIglj2ZxSUC4R0KUfYun4IcbPWqPNPRy5dKs6vHFVQ-DKP7t1jwshGIu_4hfpHNrUNoQrjn1Pq8CAYDi6NyqDZHIldpn9MQ3scCPNbE0lJrAd1Ju6qrdL",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "6d814dc4-fdd3-4e6c-b528-1c33426a72e3"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 51,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 51
+                }
+              ],
+              "prompt_token_count": 515,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 515
+                }
+              ],
+              "thoughts_token_count": 151,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 717,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-b690afc8-1156-4942-8e2d-3e5d96ea2dcc",
+            "author": "bid_manager",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "6d814dc4-fdd3-4e6c-b528-1c33426a72e3"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": [],
+            "branch": null,
+            "id": "33c55966-83b6-413b-bf5b-8ccb368e35a1",
+            "timestamp": 1778314960.944643
+          },
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": {
+                    "will_continue": null,
+                    "scheduling": null,
+                    "parts": null,
+                    "id": "adk-4fa60c4a-2ed8-4072-aa81-ed14c16f2322",
+                    "name": "read_tender",
+                    "response": {
+                      "result": "\n        BANDO DI GARA: Servizio di manutenzione impianti.\n        CIG: Z123456789\n        Scadenza: 20 Maggio 2026 ore 13:00\n        Importo: € 150.000,00\n        Requisiti: Certificazione ISO 9001 obbligatoria. Fatturato annuo minimo € 300.000,00.\n        Penali: 1% per ogni giorno di ritardo.\n        "
+                    }
+                  },
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-b690afc8-1156-4942-8e2d-3e5d96ea2dcc",
+            "author": "bid_manager",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {},
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "893b3d3c-dca4-4fdf-9e36-ed07d11986c5",
+            "timestamp": 1778314963.663948
+          },
+          {
+            "model_version": "gemini-3-flash-preview",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": {
+                    "id": "adk-df101bb6-d95f-40e6-a1a3-e6fcde5b80f8",
+                    "args": {
+                      "request": "Analizza i requisiti e i rischi del seguente bando:\n        BANDO DI GARA: Servizio di manutenzione impianti.\n        CIG: Z123456789\n        Scadenza: 20 Maggio 2026 ore 13:00\n        Importo: € 150.000,00\n        Requisiti: Certificazione ISO 9001 obbligatoria. Fatturato annuo minimo € 300.000,00.\n        Penali: 1% per ogni giorno di ritardo."
+                    },
+                    "name": "tender_analyst",
+                    "partial_args": null,
+                    "will_continue": null
+                  },
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": "AY89a1_fUt4E4ZyZO4Sg0jJlvVt3zeKfZFh11ZZjk6hAJkW-AeVOlYiZlpFVVx737C6kDz8IoEqXb-G9NF8zNN7o1Cg0mDWXaxQ7kKy9InbmqkMF0KnHuvkkwLY5ltdCAsKKxcBL2BhfDV7dfe_dMc5UdsEAzyNaiCRLSv45z5JFyI8yfjYxYIcaoWEv38avEV-EgcdHPHklNiVBcHYRe6JpiPHuk26pDcq6blL5orCnHjalgGftwC469ifs-BeKmD_QbMCI09Nyoz0c0ASQNHddHtEmVcwF1ARmBJ7QLQK1gT0GyYpElGiTfFU=",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "847298ef-1d88-4717-a128-d84bcd13f5ef"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 150,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 150
+                }
+              ],
+              "prompt_token_count": 841,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 841
+                }
+              ],
+              "thoughts_token_count": 38,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 1029,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-b690afc8-1156-4942-8e2d-3e5d96ea2dcc",
+            "author": "bid_manager",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "847298ef-1d88-4717-a128-d84bcd13f5ef"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": [],
+            "branch": null,
+            "id": "91e73ae2-de88-4499-a345-ae7086a37a79",
+            "timestamp": 1778314963.665427
+          },
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": {
+                    "will_continue": null,
+                    "scheduling": null,
+                    "parts": null,
+                    "id": "adk-df101bb6-d95f-40e6-a1a3-e6fcde5b80f8",
+                    "name": "tender_analyst",
+                    "response": {
+                      "result": "Ecco l'analisi sintetica del bando di gara per il servizio di manutenzione impianti.\n\n### 1. Requisiti di Partecipazione (Barriere all'ingresso)\n*   **Certificazione ISO 9001:** Requisito standard per la qualità. È necessario verificare se il bando richiede specifici settori EA (es. EA 28 per l'installazione e manutenzione impianti).\n*   **Fatturato Annuo (€ 300.000,00):** Questo requisito rappresenta il **doppio dell'importo a base di gara (€ 150.000,00)**. \n    *   *Criticità:* Sebbene il Codice dei Contratti Pubblici (D.Lgs. 36/2023) permetta di richiedere un fatturato fino al doppio del valore dell'appalto, tale soglia è al limite massimo della proporzionalità e potrebbe limitare la partecipazione di micro e piccole imprese.\n\n### 2. Rischi Contrattuali e Criticità (Red Flags)\n*   **⚠️ Penali (1% per giorno di ritardo):** Questa è la criticità maggiore. \n    *   *Rischio Elevato:* Una penale dell'1% giornaliero è **estremamente sproporzionata**. Solitamente, le penali nel settore pubblico oscillano tra lo 0,3‰ (per mille) e l'1‰ (per mille) al giorno. \n    *   *Impatto:* Con l'1% al giorno, bastano 10 giorni di ritardo per perdere il 10% del valore del contratto (che solitamente è il tetto massimo di penale applicabile per legge). È una clausola vessatoria che espone l'azienda a gravissimi rischi finanziari.\n*   **CIG (Z123456789):** Il formato del CIG fornito sembra un \"SmartCIG\" (tipico di affidamenti diretti o procedure sotto soglia). Assicurati che la procedura sia correttamente gestita sulle piattaforme certificate (e-procurement) come richiesto dal nuovo Codice.\n\n### 3. Punteggi Tecnici\n*   *Nota:* Il testo fornito non specifica i criteri di aggiudicazione (es. Offerta Economicamente Più Vantaggiosa - OEPV). \n*   **Raccomandazione:** In assenza di dettagli, ipotizzare che peseranno molto il **Piano di Manutenzione Preventiva** e i **Tempi di Intervento in caso di guasto (SLA)**.\n\n---\n\n### 🚩 ALERT ANALISTA\nLa clausola sulla **penale dell'1% giornaliero** è un segnale d'allarme rosso. In fase di chiarimenti, è fondamentale chiedere la rettifica o la riconduzione della penale entro i limiti fisiologici previsti dal Codice dei Contratti (0,3‰ - 1‰). Firmare un contratto con queste condizioni potrebbe azzerare il margine di profitto alla prima contestazione sui tempi di consegna o intervento."
+                    }
+                  },
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-b690afc8-1156-4942-8e2d-3e5d96ea2dcc",
+            "author": "bid_manager",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "f244adca-a92b-4410-8527-ef2fa58e85ac"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "692646a0-c74f-49b9-a8ce-bb6a1dd5dcf9",
+            "timestamp": 1778314991.942819
+          },
+          {
+            "model_version": "gemini-3-flash-preview",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": {
+                    "id": "adk-cdbf060d-a12a-433f-a822-c02dde7e9f3e",
+                    "args": {
+                      "message": "Ho analizzato il bando per il \"Servizio di manutenzione impianti\" (CIG Z123456789). Ecco una sintesi:\n\n**Dettagli Principali:**\n- **Importo:** € 150.000,00\n- **Scadenza:** 20 Maggio 2026\n- **Requisiti:** Fatturato annuo minimo di € 300.000,00 (il doppio della base d'asta) e Certificazione ISO 9001.\n\n**Rischi e Criticità:**\n- ⚠️ **Penale Estrema:** Il bando prevede una penale dell'1% per ogni giorno di ritardo. Questo valore è 10 volte superiore alla norma (solitamente 0,1%) e rappresenta un rischio finanziario altissimo.\n- **Soglia di Fatturato:** Il requisito è al limite massimo consentito, il che potrebbe rendere difficile la partecipazione se non si dispone di un solido track record finanziario.\n\n**Consiglio dell'Analista:** La penale è una \"Red Flag\" grave. Si consiglia di procedere solo se siamo disposti a chiedere un chiarimento ufficiale per ridurla o se siamo certi della nostra puntualità operativa.\n\n**Cosa vuoi fare? Rispondi con 'Go' per procedere alla preparazione dell'offerta o 'No-Go' per rinunciare.**"
+                    },
+                    "name": "ask_bid_decision",
+                    "partial_args": null,
+                    "will_continue": null
+                  },
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": "AY89a1_i9Z0AKr9e6Vdle_a4lQuXRe-dMw_rWqyZkWc6s3s3JUKN9hoimIaxKJrx2ZN35BzPjJ6aOWG9saIn_Et5J_kBLmzUsVH3WEaJeOJ5XG92pjkX6JlxbGz2mw2X8sIyWi-eSeLhWvQioJeFyBc88puryBdDViIPA5NnuFnrnSUdnMhgoZ8HRtM6Pjzvc8zNNrhniSf0H2uA7-fJ6GjO-Y1cemVsiwaKDhPu5NBCETNDpkZ6Xh3JuvPp6ogLLlBubmnd2qcpzOIgCKENfDkc88QOe9lg4N1E-oVM87H7cCrr5iWrAgbGWRz3KuaTj9sMxFF1a876A0AO2UD-0xWzWPnSAgoBG7LI4wTVAFcSsQ25ZiypMLmwHt_QLW9bvJtAEpltzcUJ6zl0HjnpGSWhkLeIkTgdGZTCnsqFwnjqkNkCyvndQVbyuDwZstX6UeApThybWkomFqIH1ovBjaA89qXO0GMY503C9gNKibQbrMFZ5GcFvfvBuR1oFLVBhGOQuwmXHokBG-8NtfmSyMhxhIjdMa8nIDiHFQtR5Bo1EqQvoH4nJFpvf-X3yGj5XF0Jzr2n-7IytlIF0cvVSJDb2m1r19HuyZ7oKerriW4nA8A=",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "c8d47f8d-7511-4121-ae91-a072e4139903"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 326,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 326
+                }
+              ],
+              "prompt_token_count": 1708,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 1708
+                }
+              ],
+              "thoughts_token_count": 124,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 2158,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-b690afc8-1156-4942-8e2d-3e5d96ea2dcc",
+            "author": "bid_manager",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "c8d47f8d-7511-4121-ae91-a072e4139903"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": [
+              "adk-cdbf060d-a12a-433f-a822-c02dde7e9f3e"
+            ],
+            "branch": null,
+            "id": "03be035e-41eb-470a-afc0-79aa57d33682",
+            "timestamp": 1778314991.9467819
+          },
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": {
+                    "will_continue": null,
+                    "scheduling": null,
+                    "parts": null,
+                    "id": "adk-cdbf060d-a12a-433f-a822-c02dde7e9f3e",
+                    "name": "ask_bid_decision",
+                    "response": {
+                      "status": "pending",
+                      "message": "Ho analizzato il bando per il \"Servizio di manutenzione impianti\" (CIG Z123456789). Ecco una sintesi:\n\n**Dettagli Principali:**\n- **Importo:** € 150.000,00\n- **Scadenza:** 20 Maggio 2026\n- **Requisiti:** Fatturato annuo minimo di € 300.000,00 (il doppio della base d'asta) e Certificazione ISO 9001.\n\n**Rischi e Criticità:**\n- ⚠️ **Penale Estrema:** Il bando prevede una penale dell'1% per ogni giorno di ritardo. Questo valore è 10 volte superiore alla norma (solitamente 0,1%) e rappresenta un rischio finanziario altissimo.\n- **Soglia di Fatturato:** Il requisito è al limite massimo consentito, il che potrebbe rendere difficile la partecipazione se non si dispone di un solido track record finanziario.\n\n**Consiglio dell'Analista:** La penale è una \"Red Flag\" grave. Si consiglia di procedere solo se siamo disposti a chiedere un chiarimento ufficiale per ridurla o se siamo certi della nostra puntualità operativa.\n\n**Cosa vuoi fare? Rispondi con 'Go' per procedere alla preparazione dell'offerta o 'No-Go' per rinunciare.**"
+                    }
+                  },
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-b690afc8-1156-4942-8e2d-3e5d96ea2dcc",
+            "author": "bid_manager",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {},
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "50499ebe-a52a-4182-a504-fcf5b7317665",
+            "timestamp": 1778314995.800124
+          },
+          {
+            "model_version": "gemini-3-flash-preview",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Ho analizzato il bando di Sardegna CAT e ho riscontrato alcune criticità importanti.\n\n### Sintesi Analisi Gara: Servizio di manutenzione impianti\n*   **CIG:** Z123456789\n*   **Importo:** € 150.000,00\n*   **Scadenza:** 20 Maggio 2026\n\n**Punti di attenzione:**\n1.  **⚠️ Penale Eccessiva:** Il bando prevede una penale dell'**1% al giorno** per i ritardi. È una clausola estremamente rischiosa e sproporzionata (solitamente è lo 0,1%). Un ritardo di soli 10 giorni costerebbe il 10% dell'appalto.\n2.  **Requisiti di Fatturato:** Viene richiesto un fatturato annuo di € 300.000,00 (il doppio della base d'asta). È un requisito legittimo ma stringente.\n3.  **ISO 9001:** Certificazione obbligatoria richiesta.\n\n**Consiglio Tecnico:** Se decidiamo di procedere (**Go**), la prima azione dovrà essere l'invio di un quesito (chiarimento) per chiedere la revisione della clausola sulle penali, riconducendola ai limiti di legge/mercato.\n\nCosa vuoi fare? Rispondi con **\"Go\"** per avviare la pratica o **\"No-Go\"** per abbandonare questa opportunità.",
+                  "thought": null,
+                  "thought_signature": "AY89a186Kd_FuKR2DP00CdtqRs5jQDk1zePd6p10ipOoKZ-H7eFUlqPAIghYT7MxNZlX8tUKwjdvUihGVonuq3Q8b_sSjcm11CFlzGCgmTFSMD67RsK96tXzQh6-Y7rycGx6OVOb0NlEh_K3f3ndh62cpxE4uBBa4G4ySK82O-WoRAlbPqdAq9zZ6q_LfWEg28X2ATMUaacZ1vBqT-U8Ynr7twbGb-9PHEQejrnBfgnqctCHGwoWupoYCjCEyoL-iTaJGxOzhbVnQAAlX9MJOcfzGSwUVW05dmm8QLldiTbHAGSov74iuDX2vuRoCHLN0LzGBBgv8Ba1PYg9QDidOLrbUS-xfDEExbQ7LSyqO2QtXxQwDBWmqTreh8PeFKEfei8hEVTb_0DTjiHdIw_9WqKZJIftMhwcXO9rAS8s0OUE3nYx-38RUhPwoCDhZOjXEGyjgDRfiqmj7UstlqzyEpEnKHasu4blT7TW1wDXyaQD_iZ9adS39O5ukobRDh4D-Hm_4w4_fhnSTbGY5NjFVkQupX-nXLvvr9-Gw-rP59tYOeq0iKABXm8T48MPqAnxzJSixyK4eFrIuWNT3kPAAgyIymPRfd89L2w0Mt2rvxr0u9QQOnGgKoiZQBv-DGBI10lTRQgTB1YY-JU5IjV_3SR30qh9ePxe274UpjlV3OCJlgU3PAX1N5fj0Xt3s-sACq1SG5pYgRUwy-gv1JhPAgbXPzgrJIAstJN6W0-nEmy89UAqMNPKfTrXU9h2UIyfgb6F2KfZyz4yuM4b86lCJNF4pMi_VAVxvv7XnoxKRekqBeQ7fG9FFDx32bgDE0bbOSPS24wsuWuLph2rQz_VRGbE8vVQb_XaS4wWQ1rXsVWAHPCPEogLjHbOS6YoLJhvQ60njOSy_kLXYpoZbzxO-OzCz2szm_OIuKUeUu7WgWAaA1eawUV-QRugsG0FqjpeTR2hEZtwtKzXJO5HX-opLg4QUSmUc1UdIYjEvzdanUvdGQYQVeNEaZiy3504qRDumNqvd4cOFZ5H_3EzayO5d9IAIoLvM0XD-aEShbP7F1Wj0lA0MBa7pVuG93U613ytyY_R-73TG6YcA-JLEKRuucJIdTHy4sW9IVmReGrWAHDr-4k2z7XsjCKETtxWoegHOBryHw3-BCNWk4WwJwvMryIrfiP3yOgJeQXA3enZzqyQdJ1oJhzR70PgUYCOqlAaoIE8GcJHGV9daIh6Cjx4WcbLblX-DM_WStCCVnQ34e7bJtgHaLy7f9Gnxa4HxpWtEwN7ka5nomEdJUgpNyLTf5xIVeBl6O0-xOmGGEwFvY8DL7DRsuR-jYjmySzhe1eyyf7eb-O70HiTgs-iqdd9dqD58OVuvUaiyLbGycBwqCc9uXID3O9qCALcQT8NwSRC2Shu6KmLm-Kd9dZWnXegY3k5ALimj3Tt4ql4F_bN60NJjK6qzJfFXHHRT1w5fuUkkvEE6Xkn2XmxTBKCYpNSQemroR3N2vgshFSIAlT4lE-9p5zxJg==",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "5f8a0f63-b1e8-4dfb-a420-626e45b4da6d"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 339,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 339
+                }
+              ],
+              "prompt_token_count": 2472,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 2472
+                }
+              ],
+              "thoughts_token_count": 256,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 3067,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-b690afc8-1156-4942-8e2d-3e5d96ea2dcc",
+            "author": "bid_manager",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "5f8a0f63-b1e8-4dfb-a420-626e45b4da6d"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "6173cf30-ff14-41e4-9382-a1642bf5938b",
+            "timestamp": 1778314995.802238
+          }
+        ],
+        "last_update_time": 1778314995.802238
+      },
+      "user_id": "cli-user"
+    }
+  ],
+  "creation_timestamp": 1778315012.1313238
+}
