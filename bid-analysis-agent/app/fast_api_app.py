@@ -34,9 +34,11 @@ from google.adk.sessions import InMemorySessionService
 from google.cloud import logging as google_cloud_logging
 
 from app.agent import app as adk_app
+from app.agent import configure_vertex_ai
 from app.app_utils.telemetry import setup_telemetry
 from app.app_utils.typing import Feedback
 
+configure_vertex_ai()
 setup_telemetry()
 _, project_id = google.auth.default()
 logging_client = google_cloud_logging.Client()

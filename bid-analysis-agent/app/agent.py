@@ -10,11 +10,13 @@ from google.adk.models import Gemini
 from google.adk.tools import LongRunningFunctionTool, AgentTool, ToolContext
 from google.genai import types
 
-# Setup environment
-_, project_id = google.auth.default()
-os.environ["GOOGLE_CLOUD_PROJECT"] = project_id
-os.environ["GOOGLE_CLOUD_LOCATION"] = "global"
-os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "True"
+def configure_vertex_ai() -> None:
+    """Configure environment for Vertex AI. Call once at app startup."""
+    _, project_id = google.auth.default()
+    os.environ["GOOGLE_CLOUD_PROJECT"] = project_id
+    os.environ["GOOGLE_CLOUD_LOCATION"] = "global"
+    os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "True"
+
 
 # --- Tools ---
 
