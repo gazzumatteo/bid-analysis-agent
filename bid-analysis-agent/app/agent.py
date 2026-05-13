@@ -24,13 +24,16 @@ def configure_vertex_ai() -> None:
 def read_tender(url: str) -> str:
     """Reads and extracts text from a tender URL or PDF file.
 
+    Note: this is a demo mock. Only URLs containing "sardegnacat" return a
+    realistic tender body; any other URL falls back to a generic placeholder.
+    Kept deterministic on purpose — no network calls during a live demo.
+
     Args:
         url: The URL or file path of the tender document.
 
     Returns:
         The extracted text content from the tender.
     """
-    # Mocking content for the Sardegna CAT example mentioned in the plan
     if "sardegnacat" in url.lower():
         return """
         BANDO DI GARA: Servizio di manutenzione impianti.
