@@ -23,8 +23,9 @@ from app.agent import guard_workspace_tool
 @pytest.mark.asyncio
 async def test_guard_blocks_workspace_without_hitl() -> None:
     """setup_bid_workspace must be blocked if ask_bid_decision was never called."""
-    ctx = SimpleNamespace(state={})
-    result = await guard_workspace_tool(ctx, "setup_bid_workspace", {})
+    tool = SimpleNamespace(name="setup_bid_workspace")
+    tool_context = SimpleNamespace(state={})
+    result = await guard_workspace_tool(tool, {}, tool_context)
     assert result is not None
     assert "error" in result
 
@@ -32,14 +33,16 @@ async def test_guard_blocks_workspace_without_hitl() -> None:
 @pytest.mark.asyncio
 async def test_guard_allows_workspace_after_hitl() -> None:
     """Once hitl_requested is set, the guard must pass-through (return None)."""
-    ctx = SimpleNamespace(state={"hitl_requested": True})
-    result = await guard_workspace_tool(ctx, "setup_bid_workspace", {})
+    tool = SimpleNamespace(name="setup_bid_workspace")
+    tool_context = SimpleNamespace(state={"hitl_requested": True})
+    result = await guard_workspace_tool(tool, {}, tool_context)
     assert result is None
 
 
 @pytest.mark.asyncio
 async def test_guard_ignores_other_tools() -> None:
     """Guard must only gate setup_bid_workspace, not unrelated tools."""
-    ctx = SimpleNamespace(state={})
-    result = await guard_workspace_tool(ctx, "read_tender", {})
+    tool = SimpleNamespace(name="read_tender")
+    tool_context = SimpleNamespace(state={})
+    result = await guard_workspace_tool(tool, {}, tool_context)
     assert result is None

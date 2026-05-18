@@ -1,14 +1,20 @@
 # ruff: noqa
 # Copyright 2026 Google LLC
 
+import io
 import os
+
 import google.auth
+import httpx
+from bs4 import BeautifulSoup
+from pypdf import PdfReader
 from google.adk.agents import Agent
-from google.adk.agents.callback_context import CallbackContext
 from google.adk.apps import App
 from google.adk.models import Gemini
 from google.adk.tools import LongRunningFunctionTool, AgentTool, ToolContext
+from google.adk.tools.base_tool import BaseTool
 from google.genai import types
+
 
 def configure_vertex_ai() -> None:
     """Configure environment for Vertex AI. Call once at app startup."""
@@ -21,29 +27,46 @@ def configure_vertex_ai() -> None:
 # --- Tools ---
 
 
-def read_tender(url: str) -> str:
-    """Reads and extracts text from a tender URL or PDF file.
+_MAX_CONTENT_CHARS = 8_000
+_HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; BidAnalysisAgent/1.0)"}
 
-    Note: this is a demo mock. Only URLs containing "sardegnacat" return a
-    realistic tender body; any other URL falls back to a generic placeholder.
-    Kept deterministic on purpose — no network calls during a live demo.
+
+def read_tender(url: str) -> str:
+    """Reads and extracts text from a tender URL (HTML page or PDF).
+
+    Fetches the document at the given URL, detects whether it is HTML or PDF,
+    and returns the plain-text content (truncated to avoid model context limits).
 
     Args:
-        url: The URL or file path of the tender document.
+        url: The HTTP/HTTPS URL of the tender page or PDF document.
 
     Returns:
-        The extracted text content from the tender.
+        The extracted text content, at most 8 000 characters.
     """
-    if "sardegnacat" in url.lower():
-        return """
-        BANDO DI GARA: Servizio di manutenzione impianti.
-        CIG: Z123456789
-        Scadenza: 20 Maggio 2026 ore 13:00
-        Importo: € 150.000,00
-        Requisiti: Certificazione ISO 9001 obbligatoria. Fatturato annuo minimo € 300.000,00.
-        Penali: 1% per ogni giorno di ritardo.
-        """
-    return f"Contenuto generico per il bando: {url}. Si prega di analizzare i requisiti standard."
+    try:
+        with httpx.Client(follow_redirects=True, timeout=30, verify=False) as client:
+            response = client.get(url, headers=_HEADERS)
+            response.raise_for_status()
+    except httpx.HTTPStatusError as e:
+        return f"Errore nel recupero del bando: {e.response.status_code} — l'URL potrebbe essere scaduto o non valido."
+    except httpx.RequestError as e:
+        return f"Errore di rete nel recupero del bando: {e}"
+
+    content_type = response.headers.get("content-type", "")
+
+    if "pdf" in content_type or url.lower().endswith(".pdf"):
+        reader = PdfReader(io.BytesIO(response.content))
+        text = "\n".join(page.extract_text() or "" for page in reader.pages)
+    else:
+        soup = BeautifulSoup(response.text, "html.parser")
+        for tag in soup(["script", "style", "nav", "header", "footer"]):
+            tag.decompose()
+        text = soup.get_text(separator="\n", strip=True)
+
+    if len(text) > _MAX_CONTENT_CHARS:
+        text = text[:_MAX_CONTENT_CHARS] + "\n[... contenuto troncato ...]"
+
+    return text
 
 
 def ask_bid_decision(message: str, tool_context: ToolContext) -> dict:
@@ -59,10 +82,12 @@ def ask_bid_decision(message: str, tool_context: ToolContext) -> dict:
 
 
 async def guard_workspace_tool(
-    ctx: CallbackContext, tool_name: str, args: dict
+    tool: BaseTool, args: dict, tool_context: ToolContext
 ) -> dict | None:
     """Blocks setup_bid_workspace if ask_bid_decision was never called."""
-    if tool_name == "setup_bid_workspace" and not ctx.state.get("hitl_requested"):
+    if tool.name == "setup_bid_workspace" and not tool_context.state.get(
+        "hitl_requested"
+    ):
         return {
             "error": "Impossibile procedere: richiedere prima l'approvazione Go/No-Go via 'ask_bid_decision'."
         }

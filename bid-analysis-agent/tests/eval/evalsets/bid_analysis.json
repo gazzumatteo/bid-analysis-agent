@@ -8,10 +8,10 @@
       "conversation": [
         {
           "invocation_id": "inv_1",
-          "user_content": { "parts": [{ "text": "Ciao, puoi analizzare questo bando di Sardegna CAT? https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi?id=187960" }] },
+          "user_content": { "parts": [{ "text": "Ciao, puoi analizzare questo bando di Sardegna CAT? https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi" }] },
           "intermediate_data": {
             "tool_uses": [
-              { "name": "read_tender", "args": { "url": "https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi?id=187960" } },
+              { "name": "read_tender", "args": { "url": "https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi" } },
               { "name": "tender_analyst", "args": { "query": ".*" } },
               { "name": "ask_bid_decision", "args": { "message": ".*" } }
             ]
@@ -25,10 +25,10 @@
       "conversation": [
         {
           "invocation_id": "inv_1",
-          "user_content": { "parts": [{ "text": "Analizza questo bando: https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi?id=187960" }] },
+          "user_content": { "parts": [{ "text": "Analizza questo bando: https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi" }] },
           "intermediate_data": {
             "tool_uses": [
-              { "name": "read_tender", "args": { "url": "https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi?id=187960" } },
+              { "name": "read_tender", "args": { "url": "https://sardegnacat.regione.sardegna.it/portalegare/index.php/bandi" } },
               { "name": "tender_analyst", "args": { "query": ".*" } },
               { "name": "ask_bid_decision", "args": { "message": ".*" } }
             ]
