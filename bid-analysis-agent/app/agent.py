@@ -10,11 +10,13 @@ from google.adk.models import Gemini
 from google.adk.tools import LongRunningFunctionTool, AgentTool, ToolContext
 from google.genai import types
 
-# Setup environment
-_, project_id = google.auth.default()
-os.environ["GOOGLE_CLOUD_PROJECT"] = project_id
-os.environ["GOOGLE_CLOUD_LOCATION"] = "global"
-os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "True"
+def configure_vertex_ai() -> None:
+    """Configure environment for Vertex AI. Call once at app startup."""
+    _, project_id = google.auth.default()
+    os.environ["GOOGLE_CLOUD_PROJECT"] = project_id
+    os.environ["GOOGLE_CLOUD_LOCATION"] = "global"
+    os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "True"
+
 
 # --- Tools ---
 
@@ -22,13 +24,16 @@ os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "True"
 def read_tender(url: str) -> str:
     """Reads and extracts text from a tender URL or PDF file.
 
+    Note: this is a demo mock. Only URLs containing "sardegnacat" return a
+    realistic tender body; any other URL falls back to a generic placeholder.
+    Kept deterministic on purpose — no network calls during a live demo.
+
     Args:
         url: The URL or file path of the tender document.
 
     Returns:
         The extracted text content from the tender.
     """
-    # Mocking content for the Sardegna CAT example mentioned in the plan
     if "sardegnacat" in url.lower():
         return """
         BANDO DI GARA: Servizio di manutenzione impianti.
