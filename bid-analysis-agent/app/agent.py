@@ -77,20 +77,47 @@ def ask_bid_decision(message: str, tool_context: ToolContext) -> dict:
     Args:
         message: A summary of the analysis and the question for the manager.
     """
-    tool_context.state["hitl_requested"] = True
+    # Record the turn in which approval was requested: the answer has to come
+    # from the user in a later turn.
+    tool_context.state["hitl_requested_in"] = tool_context.invocation_id
     return {"status": "pending", "message": message}
+
+
+def _user_said_go(tool_context: ToolContext) -> bool:
+    """True if the user message that started this turn is an explicit 'Go'.
+
+    The decision is read from the user's own message, never from model output
+    or from a document the agent has read.
+    """
+    content = tool_context.user_content
+    if not content or not content.parts:
+        return False
+    text = " ".join(part.text or "" for part in content.parts).strip().lower()
+    first_word = text.split(maxsplit=1)[0].strip(".,;:!") if text else ""
+    return first_word == "go"  # "no-go" does not match
 
 
 async def guard_workspace_tool(
     tool: BaseTool, args: dict, tool_context: ToolContext
 ) -> dict | None:
-    """Blocks setup_bid_workspace if ask_bid_decision was never called."""
-    if tool.name == "setup_bid_workspace" and not tool_context.state.get(
-        "hitl_requested"
-    ):
+    """Lets setup_bid_workspace run only after the manager answered 'Go'.
+
+    Asking for approval is not enough: the request must come from an earlier
+    turn, and the user message of the current turn must be a 'Go'. The
+    approval is used once.
+    """
+    if tool.name != "setup_bid_workspace":
+        return None
+    requested_in = tool_context.state.get("hitl_requested_in")
+    if not requested_in:
         return {
             "error": "Impossibile procedere: richiedere prima l'approvazione Go/No-Go via 'ask_bid_decision'."
         }
+    if requested_in == tool_context.invocation_id or not _user_said_go(tool_context):
+        return {
+            "error": "Impossibile procedere: serve una risposta 'Go' del Bid Manager alla richiesta di approvazione."
+        }
+    tool_context.state["hitl_requested_in"] = None  # one approval, one workspace
     return None
 
 
