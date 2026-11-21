@@ -44,7 +44,7 @@ def read_tender(url: str) -> str:
         The extracted text content, at most 8 000 characters.
     """
     try:
-        with httpx.Client(follow_redirects=True, timeout=30, verify=False) as client:
+        with httpx.Client(follow_redirects=True, timeout=30) as client:
             response = client.get(url, headers=_HEADERS)
             response.raise_for_status()
     except httpx.HTTPStatusError as e:
